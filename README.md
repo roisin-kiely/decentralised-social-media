@@ -30,7 +30,11 @@ One of the under-appreciated and under-hyped benefits of building on Ethereum is
 - **React**: Front-end framework for building a modular and interactive user interface.  
 - **Ethereum**: Blockchain for decentralized account management and tipping.  
 - **Ethers.js**: Library for blockchain interaction, including wallet connection and Ethereum transactions.  
-- **CSS/HTML**: For styling and structuring the user interface.  
+- **CSS/HTML**: For styling and structuring the user interface.
+- **Blockchain Integration:** Ethereum, MetaMask, Web3.js
+- **Testing and Development:** Ganache
+- **Development Tools:** VS Code, Git, GitHub
+- **Deployment:** Vercel
 
 ## Getting Started
 
