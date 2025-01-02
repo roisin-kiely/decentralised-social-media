@@ -39,6 +39,11 @@ One of the under-appreciated and under-hyped benefits of building on Ethereum is
 - MetaMask or a similar Ethereum wallet browser extension
 - Basic knowledge of React and Ethereum
 
+## Credits
+
+This project was created with the help of learning resources from [SuperHi](https://www.superhi.com/), which provided valuable tutorials on WordPress and web development.
+
+
 ### Installation
 1. Clone the repository:
    ```bash
