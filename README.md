@@ -42,4 +42,4 @@ One of the under-appreciated and under-hyped benefits of building on Ethereum is
 ### Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-repo-name.git
+   git clone (https://github.com/roisin-kiely/decentralised-social-media)
