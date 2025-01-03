@@ -6,17 +6,17 @@ html { font-family: 'Inter', sans-serif; }
 }
 
 :root {
-  --background-color: #fbf7f4;
+  --background-color: #f3f1ee;
   --panel-color: #ffffff;
-  --action-panel-color: #ebe9e5;
+  --action-panel-color: #f3f1ee;
 
   --text-color: #1b221f;
 
-  --form-element-border-color: #d7d5cd;
-  --form-element-placeholder-color: #AAA9A4;
+  --form-element-border-color: #f3f1ee;
+  --form-element-placeholder-color: #cac387;
 
-  --highlight-color: #03fc24;
-  --focus-color: ##03fc24;
+  --highlight-color: #e6ff00;
+  --focus-color: #e6ff00;
   --inactive-color: #999999;
 
   --box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
@@ -34,9 +34,9 @@ html { font-family: 'Inter', sans-serif; }
     --form-element-border-color: #3D5148;
     --form-element-placeholder-color: #5D6360;
 
-    --focus-color: #03fc24;
-    --highlight-color: #03fc24;
-    --inactive-color: #5D6360;
+    --focus-color: #e6ff00;
+    --highlight-color: #e6ff00;
+    --inactive-color: #cac387;
 
     --box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
   }
