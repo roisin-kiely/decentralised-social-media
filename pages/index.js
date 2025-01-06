@@ -86,7 +86,7 @@ export default function Home() {
         <div className="main">
           <h3>Feedback forum</h3>
           <h2>Looking for feedback as a beginner</h2>
-          <p>Hey everyone, I&apos;m Stylist based in Paris, just 4 weeks into my journey, and I&apos;m looking to get some feedback on outfits I&apos;ve styles so far. I&apos;d love to connect with other Fashion Creatives!</p>
+          <p>Hey everyone, I&apos;m Stylist based in Paris, just 4 weeks into my journey, and I&apos;m looking to get some feedback on outfits I&apos;ve styled so far. I&apos;d love to connect with other Fashion Creatives!</p>
 
           <div className="slides">
             <Image src="/simeon-asenov-7w-RUcJoNoI-unsplash.jpg" width="600" height="800" />
