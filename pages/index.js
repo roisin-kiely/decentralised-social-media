@@ -118,7 +118,7 @@ export default function Home() {
 
       <Head>
         <title>Looking for feedback as a beginner – Feedback forum – StyleStop </title>
-        <meta property="og:title" content="Looking for feedback as a beginner on StyleStop" />
+        <meta property="og:title" content="StyleStop: Decentralised Social Media" />
         <meta property="og:description" content="This is a project on the SuperHi Crypto + Web3 for Creatives course" />
         <meta property="og:image" content="/Social.png" />
       </Head>
