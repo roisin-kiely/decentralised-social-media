@@ -51,7 +51,7 @@ const EthName = ({ address }) => {
     }
   }, [name]); // Run only when ENS name is resolved
 
-  const formattedAddress = `${address.substr(0, 8)}...${address.substr(-4)}`;
+  const formattedAddress = `${address.substr(0, 4)}...${address.substr(-4)}`;
 
   const icon = (
     <Jazzicon diameter={32} seed={jsNumberForAddress(address)} />
