@@ -1,4 +1,3 @@
-// for next.js's <head> tag and rendering images
 import Head from 'next/head'
 import Image from 'next/image'
 
@@ -15,17 +14,13 @@ import Answer from '../components/Answer'
 import AnswerForm from '../components/AnswerForm'
 
 export default function Home() {
-  // todo:
-  // 1. make the connect button work!
-  // 2. get the answers from the API (see /api/answers.js file)
-  // 3. add tipping like project 1
-  // 4. make the user name look good
-  // 5. let the user post their own reply
-
   const [accounts, setAccounts] = useState([])
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
   const [answers, setAnswers] = useState([])
+  
+  // Set whether the site is in read-only mode
+  const [isReadOnly, setIsReadOnly] = useState(true); // Change this to toggle between read-only mode and writable mode
 
   const connect = async function () {
     let a = await window.ethereum.request({ method: "eth_requestAccounts" })
@@ -48,7 +43,6 @@ export default function Home() {
       setAccounts(a)
     })
 
-
     fetch("/api/answers")
       .then(response => response.json())
       .then(data => { 
@@ -57,19 +51,17 @@ export default function Home() {
       })
   }, [])
 
-
   let answersArea = (
     <div className="loading">Loading the answers...</div>
   )
 
   if (!isLoading) {
     answersArea = answers.map(function (answer, index) {
-      return <Answer number={index + 1} answer={answer} accounts={accounts} isLoggedIn={isLoggedIn} />
+      return <Answer key={index} number={index + 1} answer={answer} accounts={accounts} isLoggedIn={isLoggedIn} />
     })
   }
 
-
-
+  // Pass `isReadOnly` to the AnswerForm to make it read-only
   return (
     <main>
       <header>
@@ -96,7 +88,6 @@ export default function Home() {
           </div>
         </div>
         <div className="meta">
-          
           {/* EthName */}
           <div className="eth-name">
             <img src="https://bronze-imperial-snail-7.mypinata.cloud/ipfs/bafkreiaxtbvy3dwwueypdxsaizcwy4puicktqbexczn5j2bjbcghdd5fxm" alt="Avatar of nomirose.eth" />
@@ -106,14 +97,14 @@ export default function Home() {
             </div>
           </div>
           {/* end EthName */}
-
         </div>
       </section>
 
       <section className="answers">
         {answersArea}
 
-        <AnswerForm accounts={accounts} setAnswers={setAnswers} isLoggedIn={isLoggedIn} />
+        {/* Pass `isReadOnly` to disable the form and make it read-only */}
+        <AnswerForm accounts={accounts} setAnswers={setAnswers} isLoggedIn={isLoggedIn} isReadOnly={isReadOnly} />
       </section>
 
       <Head>
@@ -125,4 +116,3 @@ export default function Home() {
     </main>
   )
 }
-
