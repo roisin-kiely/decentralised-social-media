@@ -9,11 +9,11 @@ const markdown = new MarkdownIt()
 // usually this would come from a database
 // but to keep things simple, we're setting it here
 const answers = [
-  `That's fantastic work for a beginner! Love this look and vibe!`,
+  `That's amazing progress for someone just starting out! The look and vibe!!! Keep it up!`,
   `OOTD, LOVE!. 
   
   Great work so far, love to connect.`,
-  `Hi I'm a Photographer based in Copenhagen, if you're around for Fashion Week. Let's meet up! `
+  `Love the vibe, this is ! `
 ].map(a => markdown.render(a))
 
 
