@@ -13,7 +13,7 @@ const answers = [
   `OOTD, LOVE!. 
   
   Great work so far, love to connect.`,
-  `Love the vibe, this is ! `
+  "Love the entire vibe of this shoot — the mood, the outfit. You got this!! `
 ].map(a => markdown.render(a))
 
 
