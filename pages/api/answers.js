@@ -1,4 +1,3 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import { web3 } from '../../lib/web3'
 import MarkdownIt from 'markdown-it';
 
@@ -13,16 +12,21 @@ const answers = [
   `OOTD, LOVE!. 
   
   Great work so far, love to connect.`,
- `Love the entire vibe of this shoot — the mood, the outfit. You got this!! `
+  `Love the entire vibe of this shoot — the mood, the outfit. You got this!! `
 ].map(a => markdown.render(a))
 
 
 // what happens when we ask for /api/answers
 export default function handler(req, res) {
+  // Check if the site is in read-only mode
+  const isReadOnly = true; // Set this flag to `true` to make the site read-only
+
   // if sent via a form, e.g. the reply form
-  if (req.method === "POST") {
-    
-    const { signedMessage, confirmationMessage, account, reply="", questionId=1 } = req.body
+  if (req.method === "POST" && isReadOnly) {
+    // Respond with an error indicating that the site is read-only
+    return res.status(403).json({ error: "The site is in read-only mode. You cannot post replies." });
+  } else if (req.method === "POST") {
+    const { signedMessage, confirmationMessage, account, reply = "", questionId = 1 } = req.body
 
     if (signedMessage !== null && confirmationMessage !== null && account !== null) {
       // get account from the confirmation message
