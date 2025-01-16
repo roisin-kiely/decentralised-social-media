@@ -1,53 +1,49 @@
-import { useState } from "react"
-import { web3 } from "../lib/web3"
+import { useState } from 'react';
 
-const AnswerForm = function ({ accounts, setAnswers, isLoggedIn }) {
-  const [message, setMessage] = useState("")
+export default function AnswerForm({ accounts, setAnswers, isLoggedIn, isReadOnly }) {
+  const [reply, setReply] = useState("");
 
-  const post = async function (event) {
-    event.preventDefault()
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-    const confirmationMessage = "This message is to verify that you are the person posting this reply!"
-
-    const signedMessage = await web3.eth.personal.sign(confirmationMessage, accounts[0])
-    
-    const data = { 
-      questionId: 1,
-      reply: message, 
-      account: accounts[0],
-      confirmationMessage: confirmationMessage,
-      signedMessage: signedMessage
-    }
-
-    fetch("/api/answers", { 
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
-    })
-    .then(response => response.json())
-    .then(data => {
-      setAnswers(current => {
-        return [...current, data]
+    if (!isReadOnly) {
+      // Make sure the reply is submitted only when not in read-only mode
+      fetch("/api/answers", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          signedMessage: "some-signed-message", // Replace with actual signed message logic
+          confirmationMessage: "some-confirmation-message", // Replace with actual confirmation message
+          account: accounts[0], // Use the first account in the list (if logged in)
+          reply,
+          questionId: 1
+        })
       })
-  
-      setMessage("")
-    })
-    .catch(error => {
-      console.error(error)
-    })
-  }
+        .then((res) => res.json())
+        .then((data) => {
+          setAnswers((prevAnswers) => [
+            ...prevAnswers,
+            {
+              answerId: data.answerId,
+              reply: data.reply,
+              account: data.account
+            }
+          ]);
+        });
+    }
+  };
 
   return (
-    <form onSubmit={post} className="answer-form">
-      <textarea 
-        placeholder="Please be respectful and thoughtful in your reply." 
-        value={message} 
-        onChange={e => setMessage(e.target.value)}>  
-      </textarea>
-      
-      <button disabled={!isLoggedIn}>Reply</button>
+    <form onSubmit={handleSubmit}>
+      <textarea
+        value={reply}
+        onChange={(e) => setReply(e.target.value)}
+        placeholder="Write your reply..."
+        disabled={isReadOnly}  // Disable textarea if in read-only mode
+      />
+      <button type="submit" disabled={isReadOnly}>Post Reply</button>
     </form>
-  )
+  );
 }
-
-export default AnswerForm
