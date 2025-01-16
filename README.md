@@ -1,6 +1,6 @@
 # Decentralized Social Network
 
-This project is a fully decentralized social network built on the Ethereum blockchain. It leverages blockchain's unique benefits, such as portable accounts and user-driven interaction, to create a platform free from the constraints of centralized systems.
+This project is a decentralized social network built on the Ethereum blockchain. It leverages blockchain's unique benefits, such as portable accounts and user-driven interaction, to create a platform free from the constraints of centralized systems. While not yet fully decentralized, it represents a significant step toward reducing reliance on centralized systems by focusing on account autonomy, blockchain-based tipping, and on-chain identity verification.
 
 ## Purpose
 
