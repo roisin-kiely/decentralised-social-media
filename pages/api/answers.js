@@ -8,8 +8,8 @@ const markdown = new MarkdownIt()
 // usually this would come from a database
 // but to keep things simple, we're setting it here
 const answers = [
-  `That's amazing progress for someone just starting out! The look and vibe!!! Keep it up!`,
-  `OOTD, LOVE!. 
+  `That's amazing progress for someone just starting out! Love this look and vibe!!! Keep it up!`,
+  `OOTD, LOVE! 
   
   Great work so far, love to connect.`,
   `Love the entire vibe of this shoot — the mood, the outfit. You got this!! `
